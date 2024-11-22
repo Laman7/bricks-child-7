@@ -3,6 +3,9 @@
  * Register/enqueue custom scripts and styles
  */
 add_action( 'wp_enqueue_scripts', function() {
+	// Enqueue auto.css first
+    wp_enqueue_style( 'bricks-child-auto', get_stylesheet_directory_uri() . '/auto.css', [], filemtime( get_stylesheet_directory() . '/auto.css' ) 
+    );
 	wp_enqueue_style( 'bricks-child', get_stylesheet_uri(), ['bricks-frontend'], filemtime( get_stylesheet_directory() . '/style.css' ) );
 } );
 
@@ -182,7 +185,6 @@ function sgr_filter_image_sizes( $sizes) {
 	/* unset( $sizes['medium']); */
 	unset( $sizes['medium_large']);
 	unset( $sizes['large']);
-	 
 	return $sizes;
 }
 add_filter('intermediate_image_sizes_advanced', 'sgr_filter_image_sizes');
@@ -249,7 +251,6 @@ function read_time() {
 
     // Calculate estimated reading time (assuming 8 words per minute)
     $reading_time = ceil($words / 238);
-
     return $reading_time;
 }
 
