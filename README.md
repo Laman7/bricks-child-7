@@ -18,3 +18,14 @@ Child Theme for Bricks Builder
 
 ## CSS Framework
 L7 x Bricks uses AutoCSS developed in house by Laman7. https://github.com/edwin-laman7/autoCSS
+
+[Redesign Website with Laman7](https://laman7.com)
+
+[WebCare - WordPress Maintenance](https://webcare.co)
+
+## V1.2 Improvements
+
+1. Added AutoCSS 2.0
+2. Added Block weird Searches.
+
+

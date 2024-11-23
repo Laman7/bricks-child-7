@@ -4,9 +4,8 @@
  */
 add_action( 'wp_enqueue_scripts', function() {
 	// Enqueue auto.css first
-    wp_enqueue_style( 'bricks-child-auto', get_stylesheet_directory_uri() . '/auto.css', [], filemtime( get_stylesheet_directory() . '/auto.css' ) 
-    );
 	wp_enqueue_style( 'bricks-child', get_stylesheet_uri(), ['bricks-frontend'], filemtime( get_stylesheet_directory() . '/style.css' ) );
+	wp_enqueue_style( 'bricks-child-auto', get_stylesheet_directory_uri() . '/auto.css', [], filemtime( get_stylesheet_directory() . '/auto.css' ) );
 } );
 
 /**
@@ -337,3 +336,19 @@ function show_media_sizes_column_content( $column_name, $post_id ) {
     }
 }
 add_action( 'manage_media_custom_column', 'show_media_sizes_column_content', 10, 2 );
+//Block weird searches
+add_action('init', function () {
+    if (isset($_GET['s'])) {
+        $query_string = $_GET['s'];
+
+        // Block if the search query exceeds 20 characters
+        if (strlen($query_string) > 20) {
+            wp_die('Blocked: Search query too long.', 'Blocked', ['response' => 403]);
+        }
+
+        // Block if the search query contains special characters
+        if (preg_match('/[\/\!\#\$\^\&\*\(\)\{\}\[\]\;\:\'\"\<\>\?~\`]/', $query_string)) {
+            wp_die('Blocked: Search query contains invalid characters.', 'Blocked', ['response' => 403]);
+        }
+    }
+});
