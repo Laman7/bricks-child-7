@@ -1112,13 +1112,9 @@ input[type="radio"]+label {
     font-weight: normal;
 }
 
-input,
-select,
-textarea {
+input, select,textarea { 
     border: 1px solid var(--grey);
     border-radius: var(--border-radius);
-    margin-bottom: 1rem;
-    padding: 0.4rem 0.8rem;
 }
 
 input[readonly],
