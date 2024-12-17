@@ -21,84 +21,6 @@ add_action( 'init', function() {
   }
 }, 11 );
 
-/**
- * Filter which elements to show in the builder
- * 
- * Simple outcomment (prefix: //) the elements you don't want to use in Bricks
- */
-function bricks_filter_builder_elements( $elements ) {
-	$elements = [
-		// Basic
-		// 'container', // since 1.2
-		// 'heading',
-		'text',
-		'button',
-		'icon',
-		'image',
-		'video',
-
-		// General
-		'divider',
-		'icon-box',
-		'list',
-		'accordion',
-		'tabs',
-		'form',
-		'map',
-		'alert',
-		'animated-typing',
-		'countdown',
-		'counter',
-		'pricing-tables',
-		'progress-bar',
-		'pie-chart',
-		'team-members',
-		'testimonials',
-		'html',
-		'code',
-		'logo',
-
-		// Media
-		'image-gallery',
-		'audio',
-		'carousel',
-		'slider',
-		'svg',
-
-		// Social
-		'social-icons',
-		'facebook-page',
-		'instagram-feed',
-
-		// WordPress
-		'wordpress',
-		'posts',
-		'nav-menu',
-		'sidebar',
-		'search',
-		'shortcode',
-
-		// Single
-		'post-title',
-		'post-excerpt',
-		'post-meta',
-		'post-content',
-		'post-sharing',
-		'post-related-posts',
-		'post-author',
-		'post-comments',
-		'post-taxonomy',
-		'post-navigation',
-
-		// Hidden in builder panel
-		'section',
-		'row',
-		'column',
-	];
-
-	return $elements;
-}
-// add_filter( 'bricks/builder/elements', 'bricks_filter_builder_elements' );
 
 /**
  * Add text strings to builder
@@ -126,23 +48,6 @@ add_filter( 'bricks/builder/save_messages', function( $messages ) {
 
   return $messages;
 } );
-
-/**
- * Customize standard fonts
- */
-// add_filter( 'bricks/builder/standard_fonts', function( $standard_fonts ) {
-// 	// First option: Add individual standard font
-// 	$standard_fonts[] = 'Verdana';
-
-// 	// Second option: Replace all standard fonts
-// 	$standard_fonts = [
-// 		'Georgia',
-// 		'Times New Roman',
-// 		'Verdana',
-// 	];
-
-//   return $standard_fonts;
-// } );
 
 /** 
  * Add custom map style
@@ -253,32 +158,23 @@ function read_time() {
     return $reading_time;
 }
 
-//disable plugin update admin-columns-pro notification
-function disable_plugin_update_notification( $value ) {
-    if ( isset( $value ) && is_object( $value ) ) {
-        unset( $value->response['admin-columns-pro/admin-columns-pro.php'] );
-    }
-    return $value;
+// Add default image setting to ACF image fields
+add_action('acf/render_field_settings/type=image', 'add_default_value_to_image_field');
+function add_default_value_to_image_field($field) {
+	acf_render_field_setting( $field, array(
+		'label'			=> 'Default Image',
+		'instructions'		=> 'Appears when creating a new post',
+		'type'			=> 'image',
+		'name'			=> 'default_value',
+	));
 }
-add_filter( 'site_transient_update_plugins', 'disable_plugin_update_notification' );
-
-  // Add default image setting to ACF image fields
-	add_action('acf/render_field_settings/type=image', 'add_default_value_to_image_field');
-	function add_default_value_to_image_field($field) {
-		acf_render_field_setting( $field, array(
-			'label'			=> 'Default Image',
-			'instructions'		=> 'Appears when creating a new post',
-			'type'			=> 'image',
-			'name'			=> 'default_value',
-		));
-	}
-//Disable XPL RPC
+//Disable XMLRPC
 add_filter('xmlrpc_enabled', '__return_false');
 
 //Remove DuoTone WP
 function remove_svg() {
-remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
-remove_action( 'in_admin_header', 'wp_global_styles_render_svg_filters' );
+	remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
+	remove_action( 'in_admin_header', 'wp_global_styles_render_svg_filters' );
 }
 add_action('after_setup_theme', 'remove_svg', 10, 0);
 
