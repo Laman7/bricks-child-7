@@ -378,11 +378,10 @@ section{
 }
 
 @media (max-width: 992px) {
-        .col-9, .col-10, .col-11, .col-12 {width: auto;}
-        .col-5, .col-6, .col-7, .col-8 {width: auto}
-        .grid-3:not(.ct-section),.grid-4:not(.ct-section) {grid-template-columns: repeat(3,1fr)}
-        .grid-5:not(.ct-section),.grid-6:not(.ct-section) { grid-template-columns: repeat(4,1fr);}
-        
+    .col-9, .col-10, .col-11, .col-12 {width: auto;}
+    .col-5, .col-6, .col-7, .col-8 {width: auto}
+    .grid-3:not(.ct-section),.grid-4:not(.ct-section) {grid-template-columns: repeat(3,1fr)}
+    .grid-5:not(.ct-section),.grid-6:not(.ct-section) { grid-template-columns: repeat(4,1fr);}   
     }
 @media (max-width: 768px) {
     .grid-3:not(.ct-section),.grid-4:not(.ct-section) {grid-template-columns: repeat(2,1fr)}
