@@ -3,9 +3,12 @@
  * Register/enqueue custom scripts and styles
  */
 add_action( 'wp_enqueue_scripts', function() {
-	// Enqueue auto.css first
+	// Enqueue syle.css then autocss.
 	wp_enqueue_style( 'bricks-child', get_stylesheet_uri(), ['bricks-frontend'], filemtime( get_stylesheet_directory() . '/style.css' ) );
-	wp_enqueue_style( 'bricks-child-auto', get_stylesheet_directory_uri() . '/auto.css', [], filemtime( get_stylesheet_directory() . '/auto.css' ) );
+	wp_enqueue_style( 'bricks-child-auto', get_stylesheet_directory_uri() . '/auto-x.css', [], filemtime( get_stylesheet_directory() . '/auto-x.css' ) );
+
+	// Disable jQuery if not using
+	wp_enqueue_script( 'jquery' );
 } );
 
 /**

@@ -44,6 +44,10 @@ html {font-size:100%}
     \203A for single right chevron
     \00BB for double right chevron
     */
+    
+    /* Delete to use Bricks Default */
+    --bricks-color-primary: var(--primary) !important; 
+    --bricks-color-secondar: var(--secondary) !important;
 
     --xxxl: 7.5rem     ; /* changed 120px*/
     --xxl: 5rem        ; /* H1 80px */
@@ -91,6 +95,16 @@ html {font-size:100%}
 /* Overide Bricks Default */
 .brxe-section {
 }
-.brxe-container {width: 1312px;}
+.brxe-container {
+    width: 1312px;
+    @media (max-width: 992px) {
+        padding: 0 var(--clamp-s);
+    }
+}
+
+button.bricks-button {
+    border-radius: var(--btn-radius);
+    gap: calc(var(--clamp-s)*.75);
+}
 
 /* Your Styles Below this link */

@@ -314,18 +314,18 @@ section{
     &.pad-xl {padding: calc(var(--clamp-s) * 8)}
     &.pad-xxl {padding: calc(var(--clamp-s) * 10)}
     &.pad-xxxl {padding: calc(var(--clamp-s) * 12)}
-    &.rg-xs {row-gap: calc(var(--clamp-s) * 1)}
-    &.rg-s {row-gap: calc(var(--clamp-s) * 2)}
-    &.rg-l {row-gap: calc(var(--clamp-s) * 6)}
-    &.rg-xl {row-gap: calc(var(--clamp-s) * 8)}
-    &.rg-xxl {row-gap: calc(var(--clamp-s) * 10)}
-    &.rg-xxxl {row-gap: calc(var(--clamp-s) * 12)}
-    &.cg-xs {column-gap: calc(var(--clamp-s) * 1)}
-    &.cg-s {column-gap: calc(var(--clamp-s) * 2)}
-    &.cg-l {column-gap: calc(var(--clamp-s) * 6)}
-    &.cg-xl {column-gap: calc(var(--clamp-s) * 8)}
-    &.cg-xxl {column-gap: calc(var(--clamp-s) * 10)}
-    &.cg-xxxl {column-gap: calc(var(--clamp-s) * 12)}
+    &.row-gap-xs {row-gap: calc(var(--clamp-s) * 1)}
+    &.row-gap-s {row-gap: calc(var(--clamp-s) * 2)}
+    &.row-gap-l {row-gap: calc(var(--clamp-s) * 6)}
+    &.row-gap-xl {row-gap: calc(var(--clamp-s) * 8)}
+    &.row-gap-xxl {row-gap: calc(var(--clamp-s) * 10)}
+    &.row-gap-xxxl {row-gap: calc(var(--clamp-s) * 12)}
+    &.col-gap-xs {column-gap: calc(var(--clamp-s) * 1)}
+    &.col-gap-s {column-gap: calc(var(--clamp-s) * 2)}
+    &.col-gap-l {column-gap: calc(var(--clamp-s) * 6)}
+    &.col-gap-xl {column-gap: calc(var(--clamp-s) * 8)}
+    &.col-gap-xxl {column-gap: calc(var(--clamp-s) * 10)}
+    &.col-gap-xxxl {column-gap: calc(var(--clamp-s) * 12)}
 }
 .brxe-block{
     row-gap: calc(var(--clamp-s) * 1);
@@ -337,18 +337,18 @@ section{
     &.pad-xl {padding: calc(var(--clamp-s) * 2.5)}
     &.pad-xxl {padding: calc(var(--clamp-s) * 3)}
     &.pad-xxxl {padding: calc(var(--clamp-s) * 3.5)}
-    &.rg-xs {row-gap: calc(var(--clamp-s) * .25)}
-    &.rg-s {row-gap: calc(var(--clamp-s) * .75)}
-    &.rg-l {row-gap: calc(var(--clamp-s) * 1.5)}
-    &.rg-xl {row-gap: calc(var(--clamp-s) * 2)}
-    &.rg-xxl {row-gap: calc(var(--clamp-s) * 2.5)}
-    &.rg-xxxl {row-gap: calc(var(--clamp-s) * 3)}
-    &.cg-xs {column-gap: calc(var(--clamp-s) * .25)}
-    &.cg-s {column-gap: calc(var(--clamp-s) * .75)}
-    &.cg-l {column-gap: calc(var(--clamp-s) * 1.5)}
-    &.cg-xl {column-gap: calc(var(--clamp-s) * 2)}
-    &.cg-xxl {column-gap: calc(var(--clamp-s) * 2.5)}
-    &.cg-xxxl {column-gap: calc(var(--clamp-s) * 3)}
+    &.row-gap-xs {row-gap: calc(var(--clamp-s) * .25)}
+    &.row-gap-s {row-gap: calc(var(--clamp-s) * .75)}
+    &.row-gap-l {row-gap: calc(var(--clamp-s) * 1.5)}
+    &.row-gap-xl {row-gap: calc(var(--clamp-s) * 2)}
+    &.row-gap-xxl {row-gap: calc(var(--clamp-s) * 2.5)}
+    &.row-gap-xxxl {row-gap: calc(var(--clamp-s) * 3)}
+    &.col-gap-xs {column-gap: calc(var(--clamp-s) * .25)}
+    &.col-gap-s {column-gap: calc(var(--clamp-s) * .75)}
+    &.col-gap-l {column-gap: calc(var(--clamp-s) * 1.5)}
+    &.col-gap-xl {column-gap: calc(var(--clamp-s) * 2)}
+    &.col-gap-xxl {column-gap: calc(var(--clamp-s) * 2.5)}
+    &.col-gap-xxxl {column-gap: calc(var(--clamp-s) * 3)}
 }
 
 /* Grid */
@@ -532,12 +532,12 @@ section{
 }
 
 @media (max-width: 768px) {
-    .pad-xxl, .pad-xl {
+    .pad-xxl, .pad-xl, .brxe-container.pad-xxl, .brxe-container.pad-xl {
         padding: var(--clamp-m);
     }
     .pad-md-none, .pad-lg-none, .pad-md-0 {padding: 0 !important}
     .grid-l-reverse,  .grid-md-reverse {order: -1}
-    .pad-l { padding: var(--clamp-s);}
+    .pad-l, .brxe-container.pad-l, .brxe-container.pad-m { padding: var(--clamp-s);}
 }
 @media (max-width: 480px) {
     .pad-sm-none, .pad-m-none, .pad-sm-0 {padding: 0 !important}
@@ -685,6 +685,8 @@ section{
     text-decoration:none;
     border-radius: var(--btn-radius);
     line-height: var(--lh-btn);
+    color:var(--white);
+    cursor: pointer;
 }
 .btn-primary::before,.btn-secondary::before,.btn-accent::before,.btn-white::before, .btn-black::before {
     content: "";
@@ -1050,11 +1052,11 @@ textarea[readonly] {
     background-color: var(--grey);
 }
 
-label {
-    font-weight: bold;
+label, .label {
     margin-bottom: 0.2rem;
+    font-size: var(--clamp-xs);
 }
-
+form ul li { padding: 0 }
 ::selection {
     color: var(--base);
     background: var(--primary);
