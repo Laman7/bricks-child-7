@@ -23,7 +23,7 @@ L7 x Bricks uses AutoCSS developed in house by Laman7. https://github.com/edwin-
 
 [WebCare - WordPress Maintenance](https://webcare.co)
 
-## V1.3 Improvements
+## V1.3 Improvements (20 Dec 24)
 ### AutoCSS
 1. Set default section pad to 96px (6rem)
 2. Set default row-gap and column-gap for Container to 48px (4rem) & Blocks to 16px (1rem)
