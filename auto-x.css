@@ -58,6 +58,7 @@ h4, .text-m {
     letter-spacing: var(--ls-heading);
 }
 h5, h6, .text-s {
+    font-size: var(--clamp-s);
     line-height: var(--lh-heading);
 }
 .text-xs{
@@ -1137,6 +1138,8 @@ main em {
     font-weight:500;
     background-image: linear-gradient(90deg,var(--highlight-dark),var(--highlight),var(--highlight));
 }
+.border-grey {border:1px solid var(--grey); border-radius: var(--border-radius)}
+.border-grey-dark {border:1px solid var(--grey-dark); border-radius: var(--border-radius)}
 .fit-content > * {min-width:fit-content}
 .flex {display:flex}
 @media (max-width: 768px) { .flex > * {min-width:auto} }

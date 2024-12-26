@@ -30,6 +30,7 @@ L7 x Bricks uses AutoCSS developed in house by Laman7. https://github.com/edwin-
 3. Introduced new var(--clamp-section) (48px/ 3rem) for section
 4. Introduce row-gap-x and col-gap-x for Container and Blocks
 5. Section: New class pad-x. Works the same way as section pad (applies padding top and bottom only)
+6. Added border-grey, border-grey-dark
 
 ### Function.php
 1. Remove unwanted functions
